@@ -10,9 +10,10 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.css'); ?>" />
 
+<!-- -->
 </head>
 <body>
-<div class="spacer">
+<div class="spacer container">
 	<nav class="container navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed"
@@ -68,10 +69,9 @@
 				<li class="dropdown"><a data-toggle="dropdown" href="#">Action<b class="caret"></b></a>
 					<ul class="dropdown-menu jqueryFadeIn">
 						<li class="dropdown-header">Etudiant</li>
-						<li><a href=""><span class="fa fa-university"
-								aria-hidden="true"></span> Liste des etudiants</a></li>
-						<li><a href=""> <span class="fa fa-plus-square"
-								aria-hidden="true"></span> Cr&eacute;er un etudiant
+						<li><a href=""><span class="fa fa-university" aria-hidden="true"></span> Liste des eleves</a></li>
+						<li><a href=""><span class="fa fa-university" aria-hidden="true"></span> Liste des inscrits</a></li>
+						<li><a href=""> <span class="fa fa-plus-square" aria-hidden="true"></span> Inscription
 						</a></li>
 						<li class="divider"></li>
 						<li class="dropdown-header">Professeur</li>
@@ -95,7 +95,7 @@
 				<li class="dropdown"><a data-toggle="dropdown" href="#">Palmares<b
 						class="caret"></b></a>
 					<ul class="dropdown-menu jqueryFadeIn">
-						<li class="dropdown-header">Palmares des etudiants</li>
+						<li class="dropdown-header">Palmares des eleve</li>
 						<li><a href="#"><span class="fa fa-university"
 								aria-hidden="true"></span> Lister le Palmares</a></li>
 						<li><a href="#"><span class="fa fa-plus-square"

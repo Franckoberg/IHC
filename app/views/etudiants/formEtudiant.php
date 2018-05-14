@@ -227,7 +227,7 @@
 							la rentrée.</li>
 					</ol>
 
-					<div class="form-group row">
+					<!-- <div class="form-group row">
 						<label for="SignatureE" class="col-sm-2 col-form-label">Signature
 							du postulant</label>
 						<div class="col-sm-8">
@@ -235,7 +235,7 @@
 								placeholder="Signature" th:field="*{signalerE}" /> <span
 								class="text-danger" th:Errors="*{signalerE}"> </span>
 						</div>
-					</div>
+					</div> -->
 
 					<div class="form-group row">
 						<label for="EnregistreS" class="col-sm-2 col-form-label">Enregistre
