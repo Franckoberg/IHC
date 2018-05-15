@@ -24,7 +24,7 @@
 
 					<div class="alert alert-info alert-dismissable">
 						<a class="panel-close close" data-dismiss="alert">×</a>
-						 <i class="fa fa-coffee"></i> <strong>Bonjour </strong> l'IHC vous souhait la bienvenu
+						 <i class="fa fa-coffee"></i> <strong>Bonjour </strong> IHC vous souhait la bienvenu
 					</div>
 					<h3>Saisir les informations</h3>
 

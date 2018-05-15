@@ -75,8 +75,7 @@
 						</a></li>
 						<li class="divider"></li>
 						<li class="dropdown-header">Professeur</li>
-						<li><a href=""><span class="fa fa-university"
-								aria-hidden="true"></span> Liste des professeurs</a></li>
+						<li><a href="<?php echo base_url('administration/listUser'); ?>"><span class="fa fa-university" aria-hidden="true"></span> Liste des professeurs</a></li>
 						<li><a href=""><span class="fa fa-plus-square"
 								aria-hidden="true"></span> Cr&eacute;er un professeur</a></li>
 						<li class="divider"></li>
