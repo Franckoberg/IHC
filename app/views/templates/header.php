@@ -104,7 +104,14 @@
 						<li><a href="#"><span class="fa fa-bank blue"></span>
 								Imprimer bulletin</a></li>
 
-					</ul></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<span class="label label-pill label-danger count"></span>
+					Notification</a>
+					<ul class="dropdown-menu"></ul>				
+				</li>
 
 			</ul>
 			<!-- 	
@@ -136,6 +143,72 @@
 								.delay(200).fadeOut();
 					});
 
+		});
+	</script>
+
+
+	<!-- <script src="<?php // echo base_url('assets/js/dist/jquery.min.js'); ?>"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			window.notifications = window.webkitNotifications || window.mozNotifications || window.notifications;
+			if(window.notifications.checkPermission() == 0) {
+				$.get('notification', function(result) {
+					if (result > 0) {
+						var notification = window.notifications.createNotification('assets/avatar/pro.png','Nouveau message ', 'Vous avez'+result+'nouveau msg non-lus');
+						notification.show();
+					}
+				});
+			} else {
+				window.notifications.requestPermission();
+			}
+		});
+	</script> -->
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			function load_notification_action(view = ''){
+				$.ajax({
+					url: "<?php echo base_url(); ?>",
+					method: "POST",
+					data: {view:view},
+					dataType: "json",
+					success: function(data){
+						$('.dropdown-menu').html(data.notification);
+						if (data.unseen_notification > 0) {
+							$('.count').html(data.unseen_notification);
+						}
+					}
+				})
+			}
+
+			load_notification_action();
+			
+			$('#comment_form').on('submit', function(event){
+				event.preventDefault();
+				if ( $('#subject').val() != '' && $('#comment').val() != '') {
+					var form_data = $(this).serialize();
+					$.ajax({
+						url: "<?php echo base_url('/insert'); ?>",
+						method: "POST",
+						data: form_data,
+						success: function(data){
+							$('#comment_form')[0]reset();
+							load_notification_action();
+						}
+					});
+				} else {
+					alert('Information requis');
+				}
+			});
+
+			$(document).on('click','.dropdown-toggle', function() {
+				$('count').html('');
+				load_notification_action('Msg');
+			})
+
+			setInterval(function(){
+				load_notification_action();
+			}, 5000);
 		});
 	</script>
 </div>

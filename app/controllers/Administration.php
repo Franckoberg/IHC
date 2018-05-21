@@ -31,4 +31,13 @@ class Administration extends CI_Controller
 			$this->load->view('user/listUser');
 		}
 	}
+
+	function notification(){
+
+		$this->load->view('templates/header');
+		$this->load->view('login');
+		
+	}
+
+
 }

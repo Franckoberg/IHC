@@ -47,9 +47,9 @@
 
 					<!-- nouveau champs -->
 					<div class="form-group row">
-						<label for="codeUser" class="col-sm-2 col-form-label">Identifiant</label>
+						<label for="matricule" class="col-sm-2 col-form-label">Identifiant</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="codeUser" id="codeUser" placeholder="Identifiant" />
+							<input type="text" class="form-control" name="matricule" id="matricule" value="2018BF-0002" />
 						</div>
 					</div>
 					<div class="form-group row">

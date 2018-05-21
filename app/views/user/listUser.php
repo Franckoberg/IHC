@@ -8,7 +8,6 @@
 	      </div>
 	</main>
 
-
 <!-- 	<div class="container"></div>  -->  
 	<div class="container  ">
 		<h2 class="sub-header">Liste des professeurs</h2>
@@ -69,6 +68,24 @@
 	</nav>
   </div>
  -->
+
+<script src="<?php // echo base_url('assets/js/jquery.min-2.1.1.js'); ?>"></script>
+<script src="<?php // echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
+ <!-- <script type="text/javascript">
+		$(document).ready(function() {
+			window.notifications = window.webkitNotifications || window.mozNotifications || window.notifications;
+			if(window.notifications.checkPermission() == 0) {
+				$.get('notification', function(result) {
+					if (result > 0) {
+						var notification = window.notifications.createNotification('assets/avatar/pro.png','Nouveau message ', 'Vous avez'+result+'nouveau msg non-lus');
+						notification.show();
+					}
+				});
+			} else {
+				window.notifications.requestPermission();
+			}
+		});
+	</script> -->
 
 </body>
 </html>
