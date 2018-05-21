@@ -46,7 +46,8 @@ class Login extends CI_Controller {
 					$_SESSION['flash']['danger'] = 'Les deux mot de passe doit etre identique';
 					$this->load->view('user/formUser');
 				} else {
-					$result = $this->login->sing_up($nom,$prenom,$sexe,$matiere,$date_naiss,$nif,$adresse,$email,$pseudo,$pass,$phone,$status,$roles,$profession);
+					$code = $this->randomCode($nom,$prenom);
+					$result = $this->login->sing_up($code, $nom,$prenom,$sexe,$matiere,$date_naiss,$nif,$adresse,$email,$pseudo,$pass,$phone,$status,$roles,$profession);
 					// if ($result) {
 						$this->load->view('templates/header');
 						$_SESSION['flash']['info'] = 'Enregistrement reussie';
@@ -68,7 +69,25 @@ class Login extends CI_Controller {
 		}
 	}
 
-	function randomCode(){
-		
+	// dateNomPrenom-id : 2018BF-0001
+	function randomCode($nom,$prenom){
+		$matricule = $this->login->randomCode($nom,$prenom);
+		if ($matricule) {
+			$code = "";
+			$nom 	= substr($nom, 0, 1);
+			$prenom = substr($prenom, 0, 1);
+			// formatage de date 
+			$now  = time();
+			$date = substr(unix_to_human($now), 0,4);
+			
+			$code .= $date.$nom.$prenom ;
+			foreach ($matricule as $key) {
+				$user_id = $key->id;
+				$user_id++;
+			}
+			$code1 = array($code, $user_id);
+			$userCode = implode("-", $code1);
+		}	
+		 return $userCode;
 	}
 }

@@ -17,6 +17,55 @@ class Administration_model extends CI_Model
 		}
 	}
 
+
+	// function notification(){
+	// //	if ($this->input->post('view')) {
+	// 		$output = '';
+	// 		$sql = "SELECT * FROM comments ORDER BY comment_id DESC LIMIT 5 ";
+			
+	// 		$req = mysqli_query($sql, $conn);
+	// 		if (mysqli_num_rows($req) > 0) {
+	// 			while ($rows = mysqli_fetch_array($req) ) {				
+	// 			    $output .= '
+	// 					<li>
+	// 						<a href="#">
+	// 							<strong>'.$rows['comment_subject'].'</strong><br />
+	// 							<small><em>'.$rows['comment_text'].'</em></small>
+	// 						</a>
+	// 					</li>
+	// 				';
+	// 			}
+	// 		} else {
+	// 			return $output .= ' 
+	// 				<li><a href="#" class = "text-bold text-italic"> No notification found </a></li>
+	// 			';
+	// 		}
+
+	// 		$query = "SELECT * FROM comments WHERE comment_status = 0";
+	// 		$requete = $this->db->query($query);
+	// 		$count = rowCount($requete);
+	// 		var_dump($count);
+	// 		if ($requete->num_rows() > 0 ) {
+	// 			$data = array(
+	// 				'notification' 		  => $output, 
+	// 				'unseen_notification' => $count 
+	// 			);
+	// 			echo json_decode($data);
+	// 		}
+			
+	// //	}
+	// }
+
+	// function insert($comment_subject,$comment_text){
+
+	// 	$data = array(
+	// 		'comment_id' => '',
+	// 		'comment_subject' =>$comment_subject , 
+	// 		'comment_text' =>$comment_text
+	// 	);
+	// 	$this->db->insert('comments',$data);
+	// }
+
 	function notification(){
 		// if ($this->input->post('view')) {
 		// 	$output = '';
@@ -65,4 +114,5 @@ class Administration_model extends CI_Model
 
 		}
 	}
+
 }

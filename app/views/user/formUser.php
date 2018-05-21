@@ -26,6 +26,12 @@
 						<a class="panel-close close" data-dismiss="alert">×</a>
 						 <i class="fa fa-coffee"></i> <strong>Bonjour </strong> IHC vous souhait la bienvenu
 					</div>
+
+					<div class="alert alert-info alert-dismissable">
+						<a class="panel-close close" data-dismiss="alert">×</a>
+						 <i class="fa fa-coffee"></i> <strong>Bonjour </strong> IHC vous souhait la bienvenu
+					</div>
+
 					<h3>Saisir les informations</h3>
 
 						<!--C Moi -->
@@ -46,12 +52,12 @@
 					<?php endif ?>
 
 					<!-- nouveau champs -->
-					<div class="form-group row">
+				<!-- 	<div class="form-group row">
 						<label for="matricule" class="col-sm-2 col-form-label">Identifiant</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="matricule" id="matricule" value="2018BF-0002" />
 						</div>
-					</div>
+					</div> -->
 					<div class="form-group row">
 						<label for="pseudo" class="col-sm-2 col-form-label">Pseudo</label>
 						<div class="col-sm-8">
