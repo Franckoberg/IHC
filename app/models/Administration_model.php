@@ -1,8 +1,5 @@
-<?php  
+<?php 
 
-/**
-* 
-*/
 class Administration_model extends CI_Model
 {
 	function listUser(){
@@ -17,102 +14,62 @@ class Administration_model extends CI_Model
 		}
 	}
 
-
 	// function notification(){
-	// //	if ($this->input->post('view')) {
-	// 		$output = '';
-	// 		$sql = "SELECT * FROM comments ORDER BY comment_id DESC LIMIT 5 ";
-			
-	// 		$req = mysqli_query($sql, $conn);
-	// 		if (mysqli_num_rows($req) > 0) {
-	// 			while ($rows = mysqli_fetch_array($req) ) {				
-	// 			    $output .= '
-	// 					<li>
-	// 						<a href="#">
-	// 							<strong>'.$rows['comment_subject'].'</strong><br />
-	// 							<small><em>'.$rows['comment_text'].'</em></small>
-	// 						</a>
-	// 					</li>
-	// 				';
-	// 			}
-	// 		} else {
-	// 			return $output .= ' 
-	// 				<li><a href="#" class = "text-bold text-italic"> No notification found </a></li>
-	// 			';
-	// 		}
-
-	// 		$query = "SELECT * FROM comments WHERE comment_status = 0";
-	// 		$requete = $this->db->query($query);
-	// 		$count = rowCount($requete);
-	// 		var_dump($count);
-	// 		if ($requete->num_rows() > 0 ) {
-	// 			$data = array(
-	// 				'notification' 		  => $output, 
-	// 				'unseen_notification' => $count 
-	// 			);
-	// 			echo json_decode($data);
-	// 		}
-			
-	// //	}
+	// 	if(isset($_POST["view"]))
+	// 	{
+	// 	 // include("connect.php");
+	// 	 if($_POST["view"] != '')
+	// 	 {
+	// 	  $update_query = "UPDATE comments SET comment_status=1 WHERE comment_status=0";
+	// 	  mysqli_query($connect, $update_query);
+	// 	 }
+	// 	 $query = "SELECT * FROM comments ORDER BY comment_id DESC LIMIT 5";
+	// 	 $result = mysqli_query($connect, $query);
+	// 	 $output = '';
+		 
+	// 	 if(mysqli_num_rows($result) > 0)
+	// 	 {
+	// 	  while($row = mysqli_fetch_array($result))
+	// 	  {
+	// 	   $output .= '
+	// 	   <li>
+	// 	    <a href="#">
+	// 	     <strong>'.$row["comment_subject"].'</strong><br />
+	// 	     <small><em>'.$row["comment_text"].'</em></small>
+	// 	    </a>
+	// 	   </li>
+	// 	   <li class="divider"></li>
+	// 	   ';
+	// 	  }
+	// 	 }
+	// 	 else
+	// 	 {
+	// 	  $output .= '<li><a href="#" class="text-bold text-italic">No Notification Found</a></li>';
+	// 	 }
+		 
+	// 	 $query_1 = "SELECT * FROM comments WHERE comment_status=0";
+	// 	 $result_1 = mysqli_query($connect, $query_1);
+	// 	 $count = mysqli_num_rows($result_1);
+	// 	 $data = array(
+	// 	  'notification'   => $output,
+	// 	  'unseen_notification' => $count
+	// 	 );
+	// 	 echo json_encode($data);
+	// 	}
 	// }
 
-	// function insert($comment_subject,$comment_text){
-
-	// 	$data = array(
-	// 		'comment_id' => '',
-	// 		'comment_subject' =>$comment_subject , 
-	// 		'comment_text' =>$comment_text
-	// 	);
-	// 	$this->db->insert('comments',$data);
+	// function insert(){
+	// 	if(isset($_POST["subject"]))
+	// 	{
+	// 	 // include("connect.php");
+	// 	 $subject = mysqli_real_escape_string($connect, $_POST["subject"]);
+	// 	 $comment = mysqli_real_escape_string($connect, $_POST["comment"]);
+	// 	 $query = "
+	// 	 INSERT INTO comments(comment_subject, comment_text)
+	// 	 VALUES ('$subject', '$comment')
+	// 	 ";
+	// 	 mysqli_query($connect, $query);
+	// 	}
 	// }
-
-	function notification(){
-		// if ($this->input->post('view')) {
-		// 	$output = '';
-		// 	$sql = "SELECT * FROM comments ORDER BY comment_id DESC LIMIT 5 ";
-		// 	$req = $this->db->query($sql);
-		// 	if ($req->num_rows() > 0 ) {
-		// 		foreach ($req as $rows) {
-		// 			$output .= '
-		// 				<li>
-		// 					<a href="#">
-		// 						<strong>'.$rows->comment_sujet.'</strong><br />
-		// 						<small><em>'.$rows->comment_text.'</em></small>
-		// 					</a>
-		// 				</li>
-		// 			';
-		// 		}
-		// 	} else {
-		// 		$output .= ' 
-		// 			<li><a href="#" class = "text-bold text-italic"> No notification found </a></li>
-		// 		';
-		// 	}
-
-		// 	$query = "SELECT * FROM comments WHERE comment_status = 0";
-		// 	$requete = $this->db->query($query);
-		// 	$count->rowCount();
-		// 	if ($requete->num_rows() === 1 ) {
-		// 		foreach ($requete as $key) {
-		// 			$data = array(
-		// 				'notification' 		  => $output, 
-		// 				'unseen_notification' => $count 
-		// 			);
-		// 		}
-		// 	}
-		// 	echo json_decode($data);
-		// }
-	}
-
-	function insert(){
-		if($this->input->post('subject')){
-			$comments_sujet = $this->input->post('comment_sujet');
-			$comments_text  = $this->input->post('comment_text');
-
-			$sql = 'INSERT INTO comments (?,?)';
-			$req = $this->db->query($sql, array($comment_sujet, $comment_text));
-
-
-		}
-	}
 
 }

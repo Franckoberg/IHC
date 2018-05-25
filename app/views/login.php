@@ -65,27 +65,3 @@
 </div>
 
 
-<div>
-	<form action="<?php echo base_url('administration/notification');?>" class='form-horizontal' method="post" accept-charset="utf-8">
-		<div class="form-group">
-		<label for="inputEmail3" class="col-sm-2 control-label">Subject</label>
-		<div class="col-sm-10">
-		  <input type="text" name="subject" value="" class="form-control" id="subject" placeholder="Subject" />
-		</div>
-		</div>
-		<div class="form-group">
-		<label for="inputPassword3" class="col-sm-2 control-label">Comments</label>
-		<div class="col-sm-10">
-		  <textarea name="comment" id="comment" rows="5">
-		  	
-		  </textarea>
-		</div>
-		</div>
-		<div class="form-group">
-		<div class="col-sm-offset-2 col-sm-10">
-		  <button type="submit" name="post" id="post" class="btn btn-default" value="Post">Post</button>
-
-		</div>
-		</div>
-		</form>	
-</div>

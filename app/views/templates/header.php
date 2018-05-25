@@ -14,16 +14,15 @@
 </head>
 <body>
 <div class="spacer container">
-	<nav class="container navbar navbar-inverse navbar-fixed-top">
+	<nav class="container navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-				aria-controls="navbar">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"
+				aria-expanded="false" aria-controls="navbar">
 				<span class="sr-only">Toggle navigation</span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" inline="text">SchoolApp Salut user  </a>
+			<a class="navbar-brand" inline="text">SchoolApp </a>
 		</div>
 
 		<div class="collapse navbar-collapse" id="main-menu" style="margin-bottom: 0px;">
@@ -37,15 +36,15 @@
 							<ul class="dropdown-menu">
 								<li class="dropdown-header">Administration</li>
 								<li>
-									<a href="#">
+									<a href="<?php echo base_url('Parametres/lister_fourniture'); ?>">
 										<span class="fa fa-university" aria-hidden="true">					
-										</span> Lister personnel 
+										</span> Lister fournitures 
 									</a>
 								</li>
 								<li>
-									<a href="#">
+									<a href="<?php echo base_url('Parametres/ajoute_fournitures'); ?>">
 										<span class="fa fa-plus-square" aria-hidden="true"> 
-										</span> Cr&eacute;er personnel
+										</span> Cr&eacute;er une liste
 									</a>
 								</li>
 								<li class="divider"></li>
@@ -113,6 +112,14 @@
 					<ul class="dropdown-menu"></ul>				
 				</li>
 
+				<li class="dropdown">
+			       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			       	<span class="label label-pill label-danger count" style="border-radius:10px;">
+			       	</span> <span class="glyphicon glyphicon-envelope" style="font-size:18px;"></span></a>
+			       	<!-- <span class="glyphicon glyphicon-search"></span> -->
+			       <ul class="dropdown-menu"></ul>
+			    </li>
+
 			</ul>
 			<!-- 	
 					<form class="navbar-form pull-right">
@@ -134,81 +141,72 @@
 		$(function() {
 			// Affichage du sous menu en douceur
 			jQuery('ul.nav li.dropdown').hover(
-					function() {
-						jQuery(this).find('.jqueryFadeIn').stop(true, true)
-								.delay(200).fadeIn();
-					},
-					function() {
-						jQuery(this).find('.jqueryFadeIn').stop(true, true)
-								.delay(200).fadeOut();
-					});
-
-		});
-	</script>
-
-
-	<!-- <script src="<?php // echo base_url('assets/js/dist/jquery.min.js'); ?>"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			window.notifications = window.webkitNotifications || window.mozNotifications || window.notifications;
-			if(window.notifications.checkPermission() == 0) {
-				$.get('notification', function(result) {
-					if (result > 0) {
-						var notification = window.notifications.createNotification('assets/avatar/pro.png','Nouveau message ', 'Vous avez'+result+'nouveau msg non-lus');
-						notification.show();
-					}
-				});
-			} else {
-				window.notifications.requestPermission();
-			}
-		});
-	</script> -->
-
-	<script type="text/javascript">
-		$(document).ready(function(){
-			function load_notification_action(view = ''){
-				$.ajax({
-					url: "<?php echo base_url(); ?>",
-					method: "POST",
-					data: {view:view},
-					dataType: "json",
-					success: function(data){
-						$('.dropdown-menu').html(data.notification);
-						if (data.unseen_notification > 0) {
-							$('.count').html(data.unseen_notification);
-						}
-					}
-				})
-			}
-
-			load_notification_action();
-			
-			$('#comment_form').on('submit', function(event){
-				event.preventDefault();
-				if ( $('#subject').val() != '' && $('#comment').val() != '') {
-					var form_data = $(this).serialize();
-					$.ajax({
-						url: "<?php echo base_url('/insert'); ?>",
-						method: "POST",
-						data: form_data,
-						success: function(data){
-							$('#comment_form')[0]reset();
-							load_notification_action();
-						}
-					});
-				} else {
-					alert('Information requis');
-				}
+				function() {
+					jQuery(this).find('.jqueryFadeIn').stop(true, true)
+					.delay(200).fadeIn();
+				},
+				function() {
+					jQuery(this).find('.jqueryFadeIn').stop(true, true)
+					.delay(200).fadeOut();
 			});
-
-			$(document).on('click','.dropdown-toggle', function() {
-				$('count').html('');
-				load_notification_action('Msg');
-			})
-
-			setInterval(function(){
-				load_notification_action();
-			}, 5000);
 		});
 	</script>
+
+	<script>
+	$(document).ready(function(){
+	 
+	 function load_unseen_notification(view = '')
+	 {
+	  $.ajax({
+	   url:"fetch.php",
+	   method:"POST",
+	   data:{view:view},
+	   dataType:"json",
+	   success:function(data)
+	   {
+	    $('.dropdown-menu').html(data.notification);
+	    if(data.unseen_notification > 0)
+	    {
+	     $('.count').html(data.unseen_notification);
+	    }
+	   }
+	  });
+	 }
+	 
+	 load_unseen_notification();
+	 
+	 $('#comment_form').on('submit', function(event){
+	  event.preventDefault();
+	  if($('#subject').val() != '' && $('#comment').val() != '')
+	  {
+	   var form_data = $(this).serialize();
+	   $.ajax({
+	    url:"insert.php",
+	    method:"POST",
+	    data:form_data,
+	    success:function(data)
+	    {
+	     $('#comment_form')[0].reset();
+	     load_unseen_notification();
+	    }
+	   });
+	  }
+	  else
+	  {
+	   alert("Both Fields are Required");
+	  }
+	 });
+	 
+	 $(document).on('click', '.dropdown-toggle', function(){
+	  $('.count').html('');
+	  load_unseen_notification('yes');
+	 });
+	 
+	 setInterval(function(){ 
+	  load_unseen_notification();; 
+	 }, 5000);
+	 
+	});
+</script>
+
 </div>

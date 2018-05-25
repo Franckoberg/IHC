@@ -16,11 +16,12 @@ class Administration extends CI_Controller
 		if ($result) {
 			foreach ($result as $key ) {
 				$data = array (
-					'code_professeur'  => $key->code_professeur,
+					'matricule' 	   => $key->matricule,
 					'pseudo'		   => $key->pseudo,
 					'sexe'			   => $key->sexe,
 					'addresse'	       => $key->addresse,
-					'email' 	       => $key->email
+					'email' 	       => $key->email,
+					'matiere' 	       => $key->matiere
 				);
 			}
 			$this->load->view('templates/header');

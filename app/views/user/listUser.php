@@ -27,12 +27,12 @@
 			<tbody>
 
 				<tr>
-					<td><?php echo $code_professeur; ?></td>
+					<td><?php echo $matricule; ?></td>
 					<td><?php echo $pseudo;  ?></td>
 					<td><?php echo $sexe; ?></td>
 					<td><?php echo $addresse;  ?></td>
 					<td><?php echo $email; ?></td>
-					<td><?php // mecho $matiere ?></td>
+					<td><?php echo $matiere ?></td>
 					<td><?php // echo  ?></td>
 					<td><img class="img-circle" src="<?php echo base_url('assets/avatar/profil-icon.jpg'); ?>" width="40" height="40" /></td>
 					<td><a href="profil#"> <img src="<?php echo base_url('assets/img/male_user-icon.png'); ?>" width="30" height="30" /></a></td>
