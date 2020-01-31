@@ -1,0 +1,25 @@
+import os
+import glob
+import os.path
+
+filepath = r"C:\Users\NATCOM\Documents\Franck_b\wsp"
+
+def CheckAccess():
+    print("Initialisation ...")
+    fileAcces = os.access(r"C:\Users\NATCOM\Documents\Franck_b\wsp", os.F_OK)
+   # print("Acces " + str(fileAcces))
+    if(fileAcces == True):
+        listdirectory(filepath)
+    else:
+        print("Access denie!")
+
+def listdirectory(filepath):
+    files = []
+    ls = glob.glob(filepath+ '\\*')
+    for i in ls:
+        if os.path.isdir(i): files.extend(listdirectory(i))
+        else: files.append(i)
+        return files
+
+# CheckAccess()
+listdirectory(filepath)
